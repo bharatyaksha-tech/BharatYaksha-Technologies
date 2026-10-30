@@ -202,13 +202,30 @@ section[id] {
 .photo-seri { background-image: url("/images/bg-seri-1920.jpg"); }
 .photo-soft { background-image: url("/images/bg-soft-1920.jpg"); }
 @media (max-width: 900px) {
+  /* Phone sections are very tall and narrow, so a plain "cover" would zoom the landscape photo
+     into a thin blurry strip. Instead the photo sits in a screen-sized fixed layer that is only
+     revealed through the section (clip-path), so it always shows whole and sharp. */
   .section-photo {
-    background-attachment: scroll; /* phones ignore fixed backgrounds anyway */
+    background-image: none !important;
+    clip-path: inset(0);
   }
-  .photo-agri { background-image: url("/images/bg-agri-1280.jpg"); }
-  .photo-auto { background-image: url("/images/bg-auto-1280.jpg"); }
-  .photo-seri { background-image: url("/images/bg-seri-1280.jpg"); }
-  .photo-soft { background-image: url("/images/bg-soft-1280.jpg"); }
+  .section-photo::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .photo-agri::before { background-image: url("/images/bg-agri-1280.jpg"); }
+  .photo-auto::before { background-image: url("/images/bg-auto-1280.jpg"); }
+  .photo-seri::before { background-image: url("/images/bg-seri-1280.jpg"); }
+  .photo-soft::before { background-image: url("/images/bg-soft-1280.jpg"); }
+  /* lighter wash so the photos actually show; cards keep text readable */
+  .section-photo,
+  .section-tint .section-photo { --wash: rgba(247, 244, 238, 0.42); }
+  .section-tint .photo-auto { --wash: rgba(239, 233, 223, 0.5); }
+  .section-tint .photo-soft { --wash: rgba(239, 233, 223, 0.6); }
 }
 
 /* ---------- Shared pieces ---------- */
