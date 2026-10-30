@@ -59,18 +59,6 @@ export default function Footer() {
         BharatYaksha
       </div>
 
-      <div className="container photo-credit">
-        Silk cocoon background photo:{" "}
-        <a href="https://commons.wikimedia.org/wiki/File:The_Cocoons.jpg" target="_blank" rel="noreferrer">
-          &ldquo;The Cocoons&rdquo;
-        </a>{" "}
-        by Abhilasha Bora,{" "}
-        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
-          CC BY 4.0
-        </a>
-        .
-      </div>
-
       <div className="container footer-bottom">
         <span>&copy; {new Date().getFullYear()} BharatYaksha Technologies. All rights reserved.</span>
         <span className="footer-tagline">Guarding India's smart future.</span>
